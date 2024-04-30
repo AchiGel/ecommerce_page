@@ -1,12 +1,24 @@
 import styled from "styled-components";
 import { BiLogoShopify } from "react-icons/bi";
+import { useEffect, useState } from "react";
 
-const HeaderContainer = styled.header`
+interface HeaderContainerProps {
+  isScroll: boolean;
+}
+
+const HeaderContainer = styled.header<HeaderContainerProps>`
   height: 80px;
   width: 100%;
+  padding-inline: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  box-shadow: ${(props) =>
+    props.isScroll ? "0px 5px 20px 0px rgba(0, 0, 0, 0.75)" : "none"};
+  background-color: ${(props) => (props.isScroll ? "#f1f1f1" : "transparent")};
+  transition: background-color, box-shadow 0.3s ease;
 `;
 
 const HeaderLogo = styled.div`
@@ -44,8 +56,24 @@ const HeaderMenuLinks = styled.li`
 `;
 
 export default function Header() {
+  const [isScroll, setIsScroll] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <HeaderContainer>
+    <HeaderContainer isScroll={isScroll}>
       <HeaderLogo>
         <BiLogoShopify style={{ fontSize: "40px" }} />
       </HeaderLogo>

@@ -14,8 +14,8 @@ const Wrapper = styled.div`
 function App() {
   return (
     <div className="App">
+      <Header />
       <Wrapper>
-        <Header />
         <Main />
         <Footer />
       </Wrapper>

@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 const imageBg = require("../imgs/bg.jpg");
 
+const MainContainer = styled.main`
+  margin-top: 100px;
+`;
+
 const SectionOne = styled.section`
   position: relative;
   background-image: url(${imageBg});
@@ -26,8 +30,8 @@ const SectionOne = styled.section`
 
 export default function Main() {
   return (
-    <main>
+    <MainContainer>
       <SectionOne></SectionOne>
-    </main>
+    </MainContainer>
   );
 }
