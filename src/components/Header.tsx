@@ -68,8 +68,8 @@ const CartContent = styled.div`
   position: absolute;
   top: 75px;
   right: 30px;
-  width: 300px;
-  max-height: 400px;
+  width: 330px;
+  height: 200px;
   padding: 10px;
   background: white;
   border-radius: 10px;

@@ -18,8 +18,16 @@ function App() {
   const [orders, setOrders] = useState<FurnitureItem[]>([]);
 
   function addToOrder(item: FurnitureItem) {
-    const newOrder = item;
-    setOrders((prevOrder) => [...prevOrder, newOrder]);
+    let isInArray = false;
+    orders.forEach((el) => {
+      if (el.ID === item.ID) {
+        isInArray = true;
+      }
+    });
+    if (!isInArray) {
+      const newOrder = item;
+      setOrders((prevOrder) => [...prevOrder, newOrder]);
+    }
   }
 
   return (
