@@ -1,4 +1,18 @@
 import styled from "styled-components";
+import { IoMdAddCircleOutline } from "react-icons/io";
+
+export interface FurnitureItem {
+  ID: number;
+  title: string;
+  description: string;
+  price: number;
+  img: string;
+}
+
+interface Props {
+  data: FurnitureItem[];
+  addToOrder: Function;
+}
 
 const imageBg = require("../imgs/bg.jpg");
 
@@ -40,6 +54,7 @@ const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
   background-color: #9e9e9e3b;
   max-width: 250px;
   padding: 15px;
@@ -47,7 +62,6 @@ const ProductCard = styled.div`
   overflow: hidden;
   transition: scale 0.2s ease;
   &:hover {
-    cursor: pointer;
     scale: 1.1;
   }
 `;
@@ -58,17 +72,17 @@ const ProductImg = styled.img`
   object-fit: cover;
 `;
 
-interface FurnitureItem {
-  ID: number;
-  title: string;
-  description: string;
-  price: number;
-  img: string;
-}
-
-interface Props {
-  data: FurnitureItem[];
-}
+const Addbutton = styled.button`
+  border: none;
+  outline: none;
+  background-color: #cf5959;
+  border-radius: 50%;
+  padding: 5px;
+  &:hover {
+    cursor: pointer;
+    scale: 1.1;
+  }
+`;
 
 export default function Main(props: Props) {
   return (
@@ -81,6 +95,13 @@ export default function Main(props: Props) {
             <h1>{el.title}</h1>
             <p>{el.description}</p>
             <span style={{ color: "red" }}>{"$" + el.price}</span>
+            <Addbutton
+              onClick={() => {
+                props.addToOrder(el);
+              }}
+            >
+              <IoMdAddCircleOutline style={{ fontSize: "24px" }} />
+            </Addbutton>
           </ProductCard>
         ))}
       </ProductsSection>

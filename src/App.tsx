@@ -4,6 +4,8 @@ import Main from "./components/Main";
 import "./index.css";
 import styled from "styled-components";
 import furniture_data from "./DATA/furniture_data.json";
+import { useState } from "react";
+import { FurnitureItem } from "./components/Main";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -13,12 +15,18 @@ const Wrapper = styled.div`
 
 function App() {
   const DATA = furniture_data.furniture_items;
+  const [orders, setOrders] = useState<FurnitureItem[]>([]);
+
+  function addToOrder(item: FurnitureItem) {
+    const newOrder = item;
+    setOrders((prevOrder) => [...prevOrder, newOrder]);
+  }
 
   return (
     <div className="App">
-      <Header />
+      <Header orders={orders} />
       <Wrapper>
-        <Main data={DATA} />
+        <Main data={DATA} addToOrder={addToOrder} />
         <Footer />
       </Wrapper>
     </div>
