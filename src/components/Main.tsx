@@ -45,6 +45,11 @@ const ProductCard = styled.div`
   padding: 15px;
   border-radius: 10px;
   overflow: hidden;
+  transition: scale 0.2s ease;
+  &:hover {
+    cursor: pointer;
+    scale: 1.1;
+  }
 `;
 
 const ProductImg = styled.img`
@@ -75,7 +80,7 @@ export default function Main(props: Props) {
             <ProductImg src={"assets/" + el.img} alt={el.title} />
             <h1>{el.title}</h1>
             <p>{el.description}</p>
-            <span>{"$" + el.price}</span>
+            <span style={{ color: "red" }}>{"$" + el.price}</span>
           </ProductCard>
         ))}
       </ProductsSection>
