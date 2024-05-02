@@ -47,7 +47,16 @@ const ProductsSection = styled.section`
   grid-template-columns: repeat(4, 1fr);
   margin-top: 50px;
   gap: 15px;
-  justify-items: center;
+  justify-content: center;
+  @media screen and (max-width: 880px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 596px) {
+    grid-template-columns: minmax(280px, 75%);
+  }
 `;
 
 const ProductCard = styled.div`
@@ -56,7 +65,6 @@ const ProductCard = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   background-color: #9e9e9e3b;
-  max-width: 250px;
   padding: 15px;
   border-radius: 10px;
   overflow: hidden;
