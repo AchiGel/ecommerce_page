@@ -1,0 +1,144 @@
+{
+  "furniture_items": [
+    {
+      "ID": 1,
+      "title": "Modern Coffee Table",
+      "description": "A sleek and contemporary coffee table with a glass top and metal legs.",
+      "price": 149.99,
+      "img": "modern_coffee_table.jpg"
+    },
+    {
+      "ID": 2,
+      "title": "Comfortable Recliner Chair",
+      "description": "A plush recliner chair with soft upholstery, perfect for relaxing after a long day.",
+      "price": 299.99,
+      "img": "recliner_chair.jpg"
+    },
+    {
+      "ID": 3,
+      "title": "Classic Wooden Dining Table",
+      "description": "A sturdy wooden dining table with a timeless design, suitable for family gatherings and dinner parties.",
+      "price": 449.99,
+      "img": "wooden_dining_table.jpg"
+    },
+    {
+      "ID": 4,
+      "title": "Vintage Leather Sofa",
+      "description": "A luxurious leather sofa with a vintage look, adding elegance to any living room.",
+      "price": 799.99,
+      "img": "vintage_leather_sofa.jpg"
+    },
+    {
+      "ID": 5,
+      "title": "Elegant Bedside Table",
+      "description": "A stylish bedside table with drawers for storing essentials, enhancing the décor of your bedroom.",
+      "price": 129.99,
+      "img": "bedside_table.jpg"
+    },
+    {
+      "ID": 6,
+      "title": "Cozy Armchair",
+      "description": "A comfortable armchair with a soft fabric upholstery, ideal for reading or lounging.",
+      "price": 199.99,
+      "img": "armchair.jpg"
+    },
+    {
+      "ID": 7,
+      "title": "Modern TV Stand",
+      "description": "A sleek TV stand with ample storage space for media accessories, blending seamlessly with contemporary décor.",
+      "price": 279.99,
+      "img": "tv_stand.jpg"
+    },
+    {
+      "ID": 8,
+      "title": "Chic Bookshelf",
+      "description": "An elegant bookshelf with adjustable shelves, perfect for displaying your favorite books and decorative items.",
+      "price": 179.99,
+      "img": "bookshelf.jpg"
+    },
+    {
+      "ID": 9,
+      "title": "Rustic Dining Chairs (Set of 4)",
+      "description": "Set of four rustic dining chairs made from solid wood, providing comfort and style for family meals.",
+      "price": 299.99,
+      "img": "dining_chairs.jpg"
+    },
+    {
+      "ID": 10,
+      "title": "Contemporary Desk",
+      "description": "A minimalist desk with a spacious work surface and storage drawers, ideal for home offices or study rooms.",
+      "price": 349.99,
+      "img": "desk.jpg"
+    },
+    {
+      "ID": 11,
+      "title": "Sleek Floor Lamp",
+      "description": "A stylish floor lamp with adjustable height and brightness, perfect for illuminating any living space.",
+      "price": 89.99,
+      "img": "floor_lamp.jpg"
+    },
+    {
+      "ID": 12,
+      "title": "Modern Sectional Sofa",
+      "description": "A versatile sectional sofa with reversible chaise and adjustable headrests, providing comfort and functionality.",
+      "price": 1099.99,
+      "img": "sectional_sofa.jpg"
+    },
+    {
+      "ID": 13,
+      "title": "Elegant Vanity Table Set",
+      "description": "A charming vanity table set with mirror and stool, perfect for getting ready in style.",
+      "price": 249.99,
+      "img": "vanity_table.jpg"
+    },
+    {
+      "ID": 14,
+      "title": "Classic Leather Ottoman",
+      "description": "A timeless leather ottoman with storage space, doubling as a footrest or extra seating.",
+      "price": 159.99,
+      "img": "leather_ottoman.jpg"
+    },
+    {
+      "ID": 15,
+      "title": "Vintage Writing Desk",
+      "description": "A vintage-inspired writing desk with ornate details and multiple drawers, adding sophistication to any workspace.",
+      "price": 499.99,
+      "img": "writing_desk.jpg"
+    },
+    {
+      "ID": 16,
+      "title": "Stylish Bar Cart",
+      "description": "A chic bar cart with wheels for easy mobility, perfect for serving drinks and entertaining guests.",
+      "price": 179.99,
+      "img": "bar_cart.jpg"
+    },
+    {
+      "ID": 17,
+      "title": "Industrial Metal Stool",
+      "description": "A sturdy metal stool with an industrial design, suitable for kitchen islands or bar counters.",
+      "price": 49.99,
+      "img": "metal_stool.jpg"
+    },
+    {
+      "ID": 18,
+      "title": "Antique Brass Floor Mirror",
+      "description": "An antique brass floor mirror with a decorative frame, adding vintage charm to any room.",
+      "price": 279.99,
+      "img": "floor_mirror.jpg"
+    },
+    {
+      "ID": 19,
+      "title": "Ergonomic Office Chair",
+      "description": "An ergonomic office chair with lumbar support and adjustable features, promoting comfort during long work hours.",
+      "price": 229.99,
+      "img": "office_chair.jpg"
+    },
+    {
+      "ID": 20,
+      "title": "Retro Dining Table",
+      "description": "A retro-inspired dining table with a Formica top and chrome legs, bringing a nostalgic touch to mealtime.",
+      "price": 399.99,
+      "img": "dining_table.jpg"
+    }
+  ]
+}
