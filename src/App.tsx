@@ -30,9 +30,13 @@ function App() {
     }
   }
 
+  function deleteOrder(item: FurnitureItem) {
+    setOrders(orders.filter((el) => el.ID !== item.ID));
+  }
+
   return (
     <div className="App">
-      <Header orders={orders} />
+      <Header orders={orders} deleteOrder={deleteOrder} />
       <Wrapper>
         <Main data={DATA} addToOrder={addToOrder} />
         <Footer />

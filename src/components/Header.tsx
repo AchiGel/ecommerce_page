@@ -3,6 +3,7 @@ import { BiLogoShopify } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { TiShoppingCart } from "react-icons/ti";
 import { FurnitureItem } from "./Main";
+import { FaTrash } from "react-icons/fa";
 
 interface HeaderContainerProps {
   isScroll: boolean;
@@ -10,6 +11,7 @@ interface HeaderContainerProps {
 
 interface Props {
   orders: FurnitureItem[];
+  deleteOrder: Function;
 }
 
 const HeaderContainer = styled.header<HeaderContainerProps>`
@@ -64,7 +66,7 @@ const HeaderMenuLinks = styled.li`
   }
 `;
 
-const CartContent = styled.div`
+const CartContent = styled.div<Props>`
   position: absolute;
   top: 75px;
   right: 30px;
@@ -78,6 +80,9 @@ const CartContent = styled.div`
   flex-direction: column;
   gap: 10px;
   overflow-y: scroll;
+  justify-content: ${(props) =>
+    props.orders.length === 0 ? "center" : "none"};
+  align-items: ${(props) => (props.orders.length === 0 ? "center" : "none")};
 `;
 
 const CartButton = styled.button`
@@ -101,6 +106,7 @@ const CartProductCard = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: lightgray;
+  gap: 10px;
 `;
 
 export default function Header(props: Props) {
@@ -137,17 +143,27 @@ export default function Header(props: Props) {
         </CartButton>
 
         {isOpened && (
-          <CartContent>
-            {props.orders.map((el) => (
-              <CartProductCard key={el.ID}>
-                <img
-                  style={{ width: "24px" }}
-                  src={"assets/" + el.img}
-                  alt={el.title}
-                />
-                <h2 style={{ fontSize: "15px" }}>{el.title}</h2>
-              </CartProductCard>
-            ))}
+          <CartContent orders={props.orders} deleteOrder={props.deleteOrder}>
+            {props.orders.length === 0
+              ? "კალათა ცარიელია"
+              : props.orders.map((el) => (
+                  <CartProductCard key={el.ID}>
+                    <img
+                      style={{ width: "40px" }}
+                      src={"assets/" + el.img}
+                      alt={el.title}
+                    />
+                    <div>
+                      <h2 style={{ fontSize: "15px" }}>{el.title}</h2>
+                      <span>{el.price}</span>
+                    </div>
+                    <FaTrash
+                      onClick={() => {
+                        props.deleteOrder(el);
+                      }}
+                    />
+                  </CartProductCard>
+                ))}
           </CartContent>
         )}
         <HeaderMenu>
