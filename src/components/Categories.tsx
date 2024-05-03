@@ -1,8 +1,7 @@
-import { useState } from "react";
 import Select from "react-select";
 import styled from "styled-components";
 
-const options = [
+const options: any = [
   { value: "all", label: "All" },
   { value: "chair", label: "Chair" },
   { value: "sofa", label: "Sofa" },
@@ -18,21 +17,11 @@ const CategoriesFilter = styled.div`
 `;
 
 export default function Categories() {
-  const [categoryValue, setCategoryValue] = useState(null);
-
-  function handleCategoryChange(selectedOption: any) {
-    setCategoryValue(selectedOption);
-  }
-
   return (
     <CategoriesFilter>
       <label>
         Filter by categories
-        <Select
-          defaultValue={categoryValue}
-          options={options}
-          onChange={handleCategoryChange}
-        />
+        <Select options={options} />
       </label>
     </CategoriesFilter>
   );

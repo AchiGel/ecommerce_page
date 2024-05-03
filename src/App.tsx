@@ -16,6 +16,7 @@ const Wrapper = styled.div`
 function App() {
   const DATA = furniture_data.furniture_items;
   const [orders, setOrders] = useState<FurnitureItem[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<FurnitureItem[]>([]);
 
   function addToOrder(item: FurnitureItem) {
     let isInArray = false;
@@ -34,11 +35,20 @@ function App() {
     setOrders(orders.filter((el) => el.ID !== item.ID));
   }
 
+  function filterCategories(chosenCategory: string) {
+    setSelectedCategory(DATA.filter((el) => el.category === chosenCategory));
+  }
+
   return (
     <div className="App">
       <Header orders={orders} deleteOrder={deleteOrder} />
       <Wrapper>
-        <Main data={DATA} addToOrder={addToOrder} />
+        <Main
+          data={DATA}
+          addToOrder={addToOrder}
+          selectedCategory={selectedCategory}
+          filterCategories={filterCategories}
+        />
         <Footer />
       </Wrapper>
     </div>

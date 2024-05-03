@@ -8,11 +8,14 @@ export interface FurnitureItem {
   description: string;
   price: number;
   img: string;
+  category: string;
 }
 
 interface Props {
   data: FurnitureItem[];
   addToOrder: Function;
+  selectedCategory: FurnitureItem[];
+  filterCategories: Function;
 }
 
 const imageBg = require("../imgs/bg.jpg");
@@ -94,26 +97,50 @@ const Addbutton = styled.button`
 `;
 
 export default function Main(props: Props) {
+  console.log(props.selectedCategory);
   return (
     <MainContainer>
       <SectionOne></SectionOne>
       <Categories />
+      <button
+        onClick={() => {
+          props.filterCategories("sofa");
+        }}
+      >
+        Click
+      </button>
       <ProductsSection>
-        {props.data.map((el) => (
-          <ProductCard key={el.ID}>
-            <ProductImg src={"assets/" + el.img} alt={el.title} />
-            <h1>{el.title}</h1>
-            <p>{el.description}</p>
-            <span style={{ color: "red" }}>{"$" + el.price}</span>
-            <Addbutton
-              onClick={() => {
-                props.addToOrder(el);
-              }}
-            >
-              <IoMdAddCircleOutline style={{ fontSize: "24px" }} />
-            </Addbutton>
-          </ProductCard>
-        ))}
+        {props.selectedCategory.length > 0
+          ? props.selectedCategory.map((el) => (
+              <ProductCard key={el.ID}>
+                <ProductImg src={"assets/" + el.img} alt={el.title} />
+                <h1>{el.title}</h1>
+                <p>{el.description}</p>
+                <span style={{ color: "red" }}>{"$" + el.price}</span>
+                <Addbutton
+                  onClick={() => {
+                    props.addToOrder(el);
+                  }}
+                >
+                  <IoMdAddCircleOutline style={{ fontSize: "24px" }} />
+                </Addbutton>
+              </ProductCard>
+            ))
+          : props.data.map((el) => (
+              <ProductCard key={el.ID}>
+                <ProductImg src={"assets/" + el.img} alt={el.title} />
+                <h1>{el.title}</h1>
+                <p>{el.description}</p>
+                <span style={{ color: "red" }}>{"$" + el.price}</span>
+                <Addbutton
+                  onClick={() => {
+                    props.addToOrder(el);
+                  }}
+                >
+                  <IoMdAddCircleOutline style={{ fontSize: "24px" }} />
+                </Addbutton>
+              </ProductCard>
+            ))}
       </ProductsSection>
     </MainContainer>
   );
