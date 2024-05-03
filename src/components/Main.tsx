@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import Categories from "./Categories";
 
 export interface FurnitureItem {
   ID: number;
@@ -96,6 +97,7 @@ export default function Main(props: Props) {
   return (
     <MainContainer>
       <SectionOne></SectionOne>
+      <Categories />
       <ProductsSection>
         {props.data.map((el) => (
           <ProductCard key={el.ID}>
