@@ -97,18 +97,10 @@ const Addbutton = styled.button`
 `;
 
 export default function Main(props: Props) {
-  console.log(props.selectedCategory);
   return (
     <MainContainer>
       <SectionOne></SectionOne>
-      <Categories />
-      <button
-        onClick={() => {
-          props.filterCategories("sofa");
-        }}
-      >
-        Click
-      </button>
+      <Categories filterCategories={props.filterCategories} />
       <ProductsSection>
         {props.selectedCategory.length > 0
           ? props.selectedCategory.map((el) => (
