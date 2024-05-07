@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { TiShoppingCart } from "react-icons/ti";
 import { FurnitureItem } from "./Main";
 import { FaTrash } from "react-icons/fa";
+import BurgerMenu from "./BurgerMenu";
+import BurgerMenuPage from "./BurgerMenuPage";
 
 interface HeaderContainerProps {
   isScroll: boolean;
@@ -54,6 +56,9 @@ const HeaderMenu = styled.ul`
   gap: 15px;
   align-items: center;
   list-style: none;
+  @media screen and (max-width: 750px) {
+    display: none;
+  }
 `;
 
 const HeaderMenuLinks = styled.li`
@@ -111,6 +116,9 @@ const CartProductCard = styled.div`
 
 export default function Header(props: Props) {
   const [isScroll, setIsScroll] = useState(false);
+  const [burgerClicked, setBurgerClicked] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 30) {
@@ -126,7 +134,9 @@ export default function Header(props: Props) {
     };
   }, []);
 
-  const [isOpened, setIsOpened] = useState(false);
+  function openBurgerMenu() {
+    setBurgerClicked(!burgerClicked);
+  }
 
   return (
     <HeaderContainer isScroll={isScroll}>
@@ -172,6 +182,11 @@ export default function Header(props: Props) {
           <HeaderMenuLinks>Products</HeaderMenuLinks>
           <HeaderMenuLinks>Contact</HeaderMenuLinks>
         </HeaderMenu>
+        <BurgerMenu openBurger={openBurgerMenu} />
+        <BurgerMenuPage
+          burgerClicked={burgerClicked}
+          openBurger={openBurgerMenu}
+        />
       </HeaderNav>
     </HeaderContainer>
   );
