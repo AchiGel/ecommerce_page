@@ -88,6 +88,10 @@ const CartContent = styled.div<Props>`
   justify-content: ${(props) =>
     props.orders.length === 0 ? "center" : "none"};
   align-items: ${(props) => (props.orders.length === 0 ? "center" : "none")};
+  @media screen and (max-width: 500px) {
+    width: 200px;
+    height: 200px;
+  }
 `;
 
 const CartButton = styled.button`
@@ -112,6 +116,9 @@ const CartProductCard = styled.div`
   justify-content: space-between;
   background-color: lightgray;
   gap: 10px;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 export default function Header(props: Props) {
