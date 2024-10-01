@@ -20,7 +20,7 @@ interface Props {
 
 const imageBg = require("../imgs/bg.jpg");
 
-const MainContainer = styled.main`
+export const MainContainer = styled.main`
   margin-top: 100px;
 `;
 

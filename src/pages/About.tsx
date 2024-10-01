@@ -1,3 +1,5 @@
+import { MainContainer } from "../components/Main";
+
 export default function About() {
-  return <div>About</div>;
+  return <MainContainer>About</MainContainer>;
 }

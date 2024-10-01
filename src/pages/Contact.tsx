@@ -1,3 +1,5 @@
+import { MainContainer } from "../components/Main";
+
 export default function Contact() {
-  return <div>Contact</div>;
+  return <MainContainer>Contact</MainContainer>;
 }

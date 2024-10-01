@@ -1,3 +1,5 @@
+import { MainContainer } from "../components/Main";
+
 export default function Products() {
-  return <div>Products</div>;
+  return <MainContainer>Products</MainContainer>;
 }
