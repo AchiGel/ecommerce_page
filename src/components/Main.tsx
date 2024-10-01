@@ -36,10 +36,12 @@ const SectionOne = styled.section`
   border-radius: 2rem;
   &::after {
     position: absolute;
-    content: "ავეჯის შოურუმი თბილისში";
+    content: "Furniture Showroom in Tbilisi";
     font-size: 2rem;
     font-weight: 600;
     color: white;
+    width: 100%;
+    text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

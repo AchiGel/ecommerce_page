@@ -6,9 +6,10 @@ import { FurnitureItem } from "./Main";
 import { FaTrash } from "react-icons/fa";
 import BurgerMenu from "./BurgerMenu";
 import BurgerMenuPage from "./BurgerMenuPage";
+import { Link } from "react-router-dom";
 
 interface HeaderContainerProps {
-  isScroll: boolean;
+  $isScroll: boolean;
 }
 
 interface Props {
@@ -26,8 +27,8 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
   position: fixed;
   z-index: 100;
   box-shadow: ${(props) =>
-    props.isScroll ? "0px 5px 20px 0px rgba(0, 0, 0, 0.75)" : "none"};
-  background-color: ${(props) => (props.isScroll ? "#f1f1f1" : "transparent")};
+    props.$isScroll ? "0px 5px 20px 0px rgba(0, 0, 0, 0.75)" : "none"};
+  background-color: ${(props) => (props.$isScroll ? "#f1f1f1" : "transparent")};
   transition: background-color, box-shadow 0.3s ease;
 `;
 
@@ -146,7 +147,7 @@ export default function Header(props: Props) {
   }
 
   return (
-    <HeaderContainer isScroll={isScroll}>
+    <HeaderContainer $isScroll={isScroll}>
       <HeaderLogo>
         <BiLogoShopify style={{ fontSize: "40px" }} />
       </HeaderLogo>
@@ -184,10 +185,18 @@ export default function Header(props: Props) {
           </CartContent>
         )}
         <HeaderMenu>
-          <HeaderMenuLinks>Home</HeaderMenuLinks>
-          <HeaderMenuLinks>About</HeaderMenuLinks>
-          <HeaderMenuLinks>Products</HeaderMenuLinks>
-          <HeaderMenuLinks>Contact</HeaderMenuLinks>
+          <HeaderMenuLinks>
+            <Link to="/">Home</Link>
+          </HeaderMenuLinks>
+          <HeaderMenuLinks>
+            <Link to="about">About</Link>
+          </HeaderMenuLinks>
+          <HeaderMenuLinks>
+            <Link to="products">Products</Link>
+          </HeaderMenuLinks>
+          <HeaderMenuLinks>
+            <Link to="contact">Contact</Link>
+          </HeaderMenuLinks>
         </HeaderMenu>
         <BurgerMenu openBurger={openBurgerMenu} />
         <BurgerMenuPage
