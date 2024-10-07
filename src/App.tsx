@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <Header orders={orders} deleteOrder={deleteOrder} />
       <Wrapper>
-        <Outlet />
+        <Outlet context={{ orders, setOrders }} />
         <Footer />
       </Wrapper>
     </div>

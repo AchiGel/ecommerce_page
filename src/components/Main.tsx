@@ -92,6 +92,7 @@ const Addbutton = styled.button`
   background-color: #cf5959;
   border-radius: 50%;
   padding: 5px;
+  display: flex;
   &:hover {
     cursor: pointer;
     scale: 1.1;

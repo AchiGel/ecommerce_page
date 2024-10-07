@@ -17,6 +17,10 @@ interface Props {
   deleteOrder: Function;
 }
 
+interface ContainerProp {
+  $orders: FurnitureItem[];
+}
+
 const HeaderContainer = styled.header<HeaderContainerProps>`
   height: 80px;
   width: 100%;
@@ -72,7 +76,7 @@ const HeaderMenuLinks = styled.li`
   }
 `;
 
-const CartContent = styled.div<Props>`
+const CartContent = styled.div<ContainerProp>`
   position: absolute;
   top: 75px;
   right: 30px;
@@ -87,15 +91,16 @@ const CartContent = styled.div<Props>`
   gap: 10px;
   overflow-y: scroll;
   justify-content: ${(props) =>
-    props.orders.length === 0 ? "center" : "none"};
-  align-items: ${(props) => (props.orders.length === 0 ? "center" : "none")};
+    props.$orders.length === 0 ? "center" : "none"};
+  align-items: ${(props) => (props.$orders.length === 0 ? "center" : "none")};
   @media screen and (max-width: 500px) {
     width: 200px;
     height: 200px;
   }
 `;
 
-const CartButton = styled.button`
+const CartButton = styled.button<{ $orders: FurnitureItem[] }>`
+  position: relative;
   background-color: transparent;
   border: none;
   outline: none;
@@ -107,6 +112,20 @@ const CartButton = styled.button`
     cursor: pointer;
     scale: 1.1;
     background-color: grey;
+  }
+  &::after {
+    position: absolute;
+    content: "${(props) => props.$orders.length}";
+    width: 20px;
+    height: 20px;
+    background-color: #cf5959;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: wheat;
+    top: 0;
+    right: 0;
   }
 `;
 
@@ -156,12 +175,13 @@ export default function Header(props: Props) {
           onClick={() => {
             setIsOpened(!isOpened);
           }}
+          $orders={props.orders}
         >
           <TiShoppingCart style={{ fontSize: "30px" }} />
         </CartButton>
 
         {isOpened && (
-          <CartContent orders={props.orders} deleteOrder={props.deleteOrder}>
+          <CartContent $orders={props.orders}>
             {props.orders.length === 0
               ? "კალათა ცარიელია"
               : props.orders.map((el) => (
