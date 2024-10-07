@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import Main, { FurnitureItem } from "../components/Main";
 import furniture_data from "../DATA/furniture_data.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface OutletContext {
   orders: FurnitureItem[];
@@ -25,6 +25,10 @@ export default function Home() {
       setOrders((prevOrder) => [...prevOrder, newOrder]);
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(orders));
+  }, [orders]);
 
   function filterCategories(chosenCategory: string) {
     setSelectedCategory(DATA.filter((el) => el.category === chosenCategory));

@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import "./index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FurnitureItem } from "./components/Main";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
@@ -13,7 +13,14 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-  const [orders, setOrders] = useState<FurnitureItem[]>([]);
+  const [orders, setOrders] = useState<FurnitureItem[]>(() => {
+    const localOrders = localStorage.getItem("items");
+    return localOrders ? JSON.parse(localOrders) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(orders));
+  }, [orders]);
 
   function deleteOrder(item: FurnitureItem) {
     setOrders(orders.filter((el) => el.ID !== item.ID));
