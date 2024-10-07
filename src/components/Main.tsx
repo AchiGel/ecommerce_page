@@ -24,7 +24,7 @@ export const MainContainer = styled.main`
   margin-top: 100px;
 `;
 
-const SectionOne = styled.section`
+export const SectionOne = styled.section`
   position: relative;
   background-image: url(${imageBg});
   background-repeat: no-repeat;
@@ -102,7 +102,7 @@ const Addbutton = styled.button`
 export default function Main(props: Props) {
   return (
     <MainContainer>
-      <SectionOne></SectionOne>
+      <SectionOne />
       <Categories filterCategories={props.filterCategories} />
       <ProductsSection>
         {props.selectedCategory.length > 0
