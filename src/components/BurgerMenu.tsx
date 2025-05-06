@@ -3,7 +3,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import styled from "styled-components";
 
 interface BurgerProps {
-  openBurger: Function;
+  setBurgerClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Burger = styled.button`
@@ -18,7 +18,7 @@ const Burger = styled.button`
 
 export default function BurgerMenu(props: BurgerProps) {
   return (
-    <Burger onClick={() => props.openBurger()}>
+    <Burger onClick={() => props.setBurgerClicked(true)}>
       <RxHamburgerMenu style={{ fontSize: "33px" }} />
     </Burger>
   );

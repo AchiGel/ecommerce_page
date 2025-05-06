@@ -10,6 +10,9 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1280px;
   padding-inline: 40px;
+  @media (max-width: 768px) {
+    padding-inline: 16px;
+  }
 `;
 
 function App() {

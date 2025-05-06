@@ -34,6 +34,9 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
     props.$isScroll ? "0px 5px 20px 0px rgba(0, 0, 0, 0.75)" : "none"};
   background-color: ${(props) => (props.$isScroll ? "#f1f1f1" : "transparent")};
   transition: background-color, box-shadow 0.3s ease;
+  @media (max-width: 768px) {
+    padding-inline: 16px;
+  }
 `;
 
 const HeaderLogo = styled.div`
@@ -161,14 +164,12 @@ export default function Header(props: Props) {
     };
   }, []);
 
-  function openBurgerMenu() {
-    setBurgerClicked(!burgerClicked);
-  }
-
   return (
     <HeaderContainer $isScroll={isScroll}>
       <HeaderLogo>
-        <BiLogoShopify style={{ fontSize: "40px" }} />
+        <Link to="/">
+          <BiLogoShopify style={{ fontSize: "40px" }} />
+        </Link>
       </HeaderLogo>
       <HeaderNav>
         <CartButton
@@ -218,10 +219,10 @@ export default function Header(props: Props) {
             <Link to="contact">Contact</Link>
           </HeaderMenuLinks>
         </HeaderMenu>
-        <BurgerMenu openBurger={openBurgerMenu} />
+        <BurgerMenu setBurgerClicked={setBurgerClicked} />
         <BurgerMenuPage
           burgerClicked={burgerClicked}
-          openBurger={openBurgerMenu}
+          setBurgerClicked={setBurgerClicked}
         />
       </HeaderNav>
     </HeaderContainer>
