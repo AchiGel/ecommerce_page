@@ -1,6 +1,6 @@
 # E-commerce Pet Store 🐾
 
-![Preview](./preview.png)
+![Preview](/preview.png)
 
 ## Welcome! 👋
 
